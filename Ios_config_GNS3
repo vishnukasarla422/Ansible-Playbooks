@@ -1,0 +1,17 @@
+---
+- name: IOS Config Demo
+  hosts: routers
+
+  tasks:
+    - name: Config mode command
+      ios_config:
+        lines:
+          - ip domain name test.com
+    - name: Configure interface with IP
+      ios_config:
+        parents: interface Ethernet1/0
+        lines:
+          - ip address 2.2.2.2 255.255.255.0
+          - description ansible_configured
+        diff_against: startup
+        save_when: modified
