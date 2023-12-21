@@ -13,5 +13,4 @@
         lines:
           - ip address 2.2.2.2 255.255.255.0
           - description ansible_configured
-        diff_against: startup
-        save_when: modified
+       
