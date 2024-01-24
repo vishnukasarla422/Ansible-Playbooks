@@ -1,0 +1,17 @@
+- name: Configure BGP on a Cisco IOS router
+  hosts: cisco_ios_router
+  gather_facts: no
+  vars:
+    bgp_as: 65000
+    bgp_neighbor: 192.0.2.1
+    bgp_remote_as: 65000
+  tasks:
+    - name: Configure BGP autonomous system number
+      ios_command:
+        commands:
+          - router bgp {{ bgp_as }}
+
+    - name: Configure BGP neighbor
+      ios_command:
+        commands:
+          - neighbor {{ bgp_neighbor }} remote-as {{ bgp_remote_as }}
