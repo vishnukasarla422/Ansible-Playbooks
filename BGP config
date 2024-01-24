@@ -1,5 +1,5 @@
 - name: Configure BGP on a Cisco IOS router
-  hosts: cisco_ios_router
+  hosts: routers
   gather_facts: no
   vars:
     bgp_as: 65000
